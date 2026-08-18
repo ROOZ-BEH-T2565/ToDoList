@@ -8,8 +8,8 @@ export const Header = () => {
         <span>taghvim</span>
       </div>
       <div className={style.col}>
-        <span className={style.task}>6 Task</span>
-        <button>add New</button>
+        <span className={style.task}>6 کار</span>
+        <button>اضافه کردن</button>
       </div>
     </header>
   );

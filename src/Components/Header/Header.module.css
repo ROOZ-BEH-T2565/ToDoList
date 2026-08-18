@@ -1,6 +1,7 @@
 .header {
   padding: 30px;
   padding-bottom: 40px;
+  color: white;
 }
 .col {
   margin-bottom: 10px;
@@ -11,8 +12,8 @@
 
 .col button {
   padding: 8px 12px;
-  border: 1px solid gray;
   border-radius: 10px;
+  background-color: #b8a9c9;
 }
 .date {
   font-size: 1.4rem;

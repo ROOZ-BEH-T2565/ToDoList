@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./Home.module.css";
 import { WeekBtns } from "../../Components/weekBtns/WeekBtns";
+import { Tasks } from "../../Components/Tasks/Tasks";
 
 export const Home = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -32,27 +33,12 @@ export const Home = () => {
           />
         ))}
       </div>
+      <h2 className={style.taskTitle}>کار های من</h2>
+      <Tasks />
+      <Tasks />
+      <Tasks />
+      <Tasks />
+      <Tasks />
     </main>
   );
 };
-// return (
-//   <div>
-//     {weekDays.map((date, index) => {
-//       const persianDate = date.toLocaleDateString('fa-IR', {
-//         year: 'numeric',
-//         month: 'long',
-//         day: 'numeric',
-//       });
-//       return (
-//         <button
-//           key={index}
-//           onClick={() => setSelectedDate(date)}
-
-//         >
-//           {persianDate}
-//         </button>
-//       );
-//     })}
-
-//   </div>
-// );
