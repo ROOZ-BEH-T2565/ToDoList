@@ -1,0 +1,22 @@
+.header {
+  padding: 30px;
+  background-color: rebeccapurple;
+}
+.col {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col button {
+  padding: 8px 12px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+.date {
+  font-size: 1.4rem;
+}
+.task {
+  font-size: 1.8rem;
+}
