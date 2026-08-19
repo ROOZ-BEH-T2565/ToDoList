@@ -20,7 +20,7 @@ export const Home = () => {
   const weekDays = getDateRange();
 
   return (
-    <main className={style.home}>
+    <main className="container">
       <div className={style.week}>
         {weekDays.map((date, index) => (
           <WeekBtns
@@ -34,6 +34,13 @@ export const Home = () => {
         ))}
       </div>
       <h2 className={style.taskTitle}>کار های من</h2>
+      <Tasks />
+      <Tasks />
+      <Tasks />
+      <Tasks />
+      <Tasks />
+      <Tasks />
+      <Tasks />
       <Tasks />
       <Tasks />
       <Tasks />

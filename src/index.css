@@ -27,3 +27,12 @@ body {
   font-family: vazir;
   src: url(./assets/Fonts/Vazir.ttf) format("truetype");
 }
+
+/* galobal class */
+.container {
+  background-color: white;
+  min-height: 100dvh;
+  padding: 25px 5%;
+  border-radius: 60px 0 0 0;
+  box-shadow: -2px -2px 10px black;
+}
