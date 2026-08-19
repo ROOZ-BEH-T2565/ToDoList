@@ -17,6 +17,7 @@
 }
 .date {
   font-size: 1.4rem;
+  text-decoration: underline;
 }
 .task {
   font-size: 1.8rem;
