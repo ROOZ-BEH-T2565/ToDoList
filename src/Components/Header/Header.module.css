@@ -22,3 +22,7 @@
 .task {
   font-size: 1.8rem;
 }
+.calender {
+  position: relative;
+  z-index: 100;
+}
