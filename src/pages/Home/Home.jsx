@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Home.module.css";
 import { WeekBtns } from "../../Components/weekBtns/WeekBtns";
 import { Tasks } from "../../Components/Tasks/Tasks";
+import { useLocalStorage } from "../../Context/localStorageContext";
 
 export const Home = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  //ذخیرع کردن دیتا خوانده شده از لوکال استوریج
+  const [readTasks, setReadTasks] = useState([]);
+  const { tasks, syncTasks } = useLocalStorage();
+
+  useEffect(() => {
+    //خواندن از لوکال استوریج
+    setReadTasks(syncTasks());
+  }, []);
 
   // ساخت آرایه‌ای از ۷ روز
   const getDateRange = () => {
@@ -34,18 +43,9 @@ export const Home = () => {
         ))}
       </div>
       <h2 className={style.taskTitle}>کار های من</h2>
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
+      {tasks.map((task) => (
+        <Tasks key={task.id} task={task} />
+      ))}
     </main>
   );
 };

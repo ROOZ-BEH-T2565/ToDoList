@@ -1,38 +1,55 @@
 import { useState } from "react";
+import { useLocalStorage } from "../../Context/localStorageContext";
 import { Input } from "../../Components/input/Input";
 import style from "./CreateTask.module.css";
-import { id } from "@daypicker/react/locale";
 
 export const CreateTask = () => {
-  const [tasks, setTasks] = useState({
+  // addTask از کانتکس دریافت میکنیم
+  const { addTask } = useLocalStorage();
+
+  // استیت برای ذخیره کردن ولیو های فرم
+  const [formData, setFormData] = useState({
     title: "",
     description: "",
     time: "",
   });
 
-  //گرفتن مقدار هر اینوپوت و ذخیره در استیت
+  // گرفتن مقدار هر اینپوت و ذخیره در استیت فرم
   const handleChangeTasks = (e) => {
     const { name, value } = e.target;
-    setTasks((prevTasks) => ({
+    setFormData((prevTasks) => ({
       ...prevTasks,
       [name]: value,
     }));
   };
 
-  // ذخیره کردن تسک ها در لوکال استوریج
-  const handleSetLocalStoeage = () => {
-    //گرفتن تسک ها از لوکال استوریج
-    const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+  //ثبت تسک ها
+  const handleSubmitTask = () => {
+    //اعتبار سنجی
+    if (
+      !formData.title.trim() ||
+      !formData.description.trim() ||
+      !formData.time.trim()
+    ) {
+      alert("لطفاً عنوان و توضیحات و زمان را وارد کنید");
+      return;
+    }
 
-    //ساخت تسک جدید
+    // ساخت تسک جدید
     const newTask = {
-      ...tasks,
+      ...formData,
       id: Date.now(),
       completed: false,
     };
-    //فرستادن تسک ها به لوکال استوریج
-    localStorage.setItem("tasks", JSON.stringify([...storedTasks, newTask]));
-    setTasks({ title: "", description: "", time: "" });
+
+    //فرستادن تسک به لوکال استوریج
+    addTask(newTask);
+
+    //پاک کردن مقادیر فرم بعد از ثبت
+    setFormData({ title: "", description: "", time: "" });
+
+    // (اختیاری) اگر می‌خوای بعد از ثبت به صفحه اصلی بره، می‌تونی از useNavigate استفاده کنی
+    // navigate("/");
   };
 
   return (
@@ -40,23 +57,23 @@ export const CreateTask = () => {
       <Input
         label={"عنوان"}
         name={"title"}
-        value={tasks.title}
+        value={formData.title}
         func={handleChangeTasks}
       />
       <Input
         label={"توضیحات"}
         name={"description"}
-        value={tasks.description}
+        value={formData.description}
         func={handleChangeTasks}
       />
       <Input
         label={"زمان"}
         name={"time"}
-        value={tasks.time}
+        value={formData.time}
         func={handleChangeTasks}
       />
 
-      <button className={style.btn} onClick={handleSetLocalStoeage}>
+      <button className={style.btn} onClick={handleSubmitTask}>
         ثبت
       </button>
       <div className={`${style.circle} ${style.one}`}></div>

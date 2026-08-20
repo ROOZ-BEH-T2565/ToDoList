@@ -1,19 +1,22 @@
 import { useState } from "react";
-import { Header } from "./Components/Header/Header";
-import { Home } from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home/Home";
 import { CreateTask } from "./pages/Create Task/CreateTask";
+import { Header } from "./Components/Header/Header";
+import { LocalStorageProvider } from "./Context/localStorageContext";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Create" element={<CreateTask />} />
-        </Routes>
-      </BrowserRouter>
+      <LocalStorageProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Create" element={<CreateTask />} />
+          </Routes>
+        </BrowserRouter>
+      </LocalStorageProvider>
     </>
   );
 }
