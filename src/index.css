@@ -2,33 +2,22 @@
   /* backgroun color */
   ---bg-primary: #622569;
   --bg-secondary: #ecebf0;
-  /* --color-2: #b8a9c9; */
-
   /* border color */
   --border-color: #d5c6e8;
-  --border-light: #e4d9f2;
   /* task color */
   --color-primary: #b61af3;
   --color-primary-dark: #760ca0;
   --color-primary-light: #a78bfa;
-  --color-primary-dim: #ddd0f5;
   /* text color */
   --text-primary: #ffffff;
   --text-secondary: #5b4d6a;
-  --text-muted: #8b7a9e;
-  --text-inverse: #1e1b2e;
   /* other */
   --shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
   --shadow1: 2px 2px 5px rgba(0, 0, 0, 0.767);
   --shadow2: -2px -2px 5px rgba(0, 0, 0, 0.767);
   --shadow-click: inset 2px 2px 5px rgba(0, 0, 0, 0.767);
   --shadow-click1: inset -2px -2px 5px rgba(0, 0, 0, 0.767);
-  --radius: 14px;
   --transition: 0.3s ease;
-  /* --color-accent: #ec4899;
-  --color-accent-hover: #db2777;
-  --color-success: #10b981;
-  --color-success-hover: #059669; */
 }
 /* ===== DARK THEME ===== */
 /* html.dark {

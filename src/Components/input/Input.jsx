@@ -7,7 +7,7 @@ export const Input = (props) => {
   return (
     <div className={style.inputContainer}>
       <label htmlFor={uniqId}>{props.label}:</label>
-      <input type="text" id={uniqId} name={props.name} />
+      <input type="text" onChange={props.func} value={props.value} id={uniqId} name={props.name} />
     </div>
   );
 };
