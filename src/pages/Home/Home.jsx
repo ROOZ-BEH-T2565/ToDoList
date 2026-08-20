@@ -43,7 +43,7 @@ export const Home = () => {
         ))}
       </div>
       <h2 className={style.taskTitle}>کار های من</h2>
-      {tasks.map((task) => (
+      {(tasks || []).map((task) => (
         <Tasks key={task.id} task={task} />
       ))}
     </main>

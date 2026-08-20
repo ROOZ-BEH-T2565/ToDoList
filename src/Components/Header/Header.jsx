@@ -1,9 +1,11 @@
 import { useState } from "react";
 import style from "./Header.module.css";
 import PersianCalendar from "../Calendar/PersianCalendar";
+import { useLocalStorage } from "../../Context/localStorageContext";
 
 export const Header = () => {
   const [show, setShow] = useState(false);
+  const { tasks } = useLocalStorage();
 
   // گرفتن تاریخ امروز
   const getDate = new Date();
@@ -28,7 +30,7 @@ export const Header = () => {
         {show && <PersianCalendar />}
       </div>
       <div className={style.col}>
-        <span className={style.task}>6 کار</span>
+        <span className={style.task}>{tasks.length} کار</span>
         <button>اضافه کردن</button>
       </div>
     </header>

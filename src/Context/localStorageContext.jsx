@@ -13,13 +13,13 @@ export const LocalStorageProvider = ({ children }) => {
   //خواندن مقادیر لوکال استوریج و برگرداندن ان
   const syncTasks = () => {
     const savedTasks = localStorage.getItem("tasks");
-    const parsedTasks = setTasks ? JSON.parse(savedTasks) : [];
+    const parsedTasks = savedTasks ? JSON.parse(savedTasks) : [];
 
     setTasks(parsedTasks);
     return tasks;
   };
 
-  // تابع برای اضافه کردن تسک جدید 
+  // تابع برای اضافه کردن تسک جدید
   const addTask = (newTask) => {
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
