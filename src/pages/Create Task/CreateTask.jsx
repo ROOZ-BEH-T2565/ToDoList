@@ -21,14 +21,16 @@ export const CreateTask = () => {
 
   // ذخیره کردن تسک ها در لوکال استوریج
   const handleSetLocalStoeage = () => {
+    //گرفتن تسک ها از لوکال استوریج
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
+    //ساخت تسک جدید
     const newTask = {
       ...tasks,
       id: Date.now(),
       completed: false,
     };
-
+    //فرستادن تسک ها به لوکال استوریج
     localStorage.setItem("tasks", JSON.stringify([...storedTasks, newTask]));
     setTasks({ title: "", description: "", time: "" });
   };
