@@ -1,18 +1,40 @@
 .tasks {
   display: grid;
-  grid-template-columns: 90px 2fr 30px;
+  grid-template-columns: 90px 2fr 25px 30px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #b8a9c9;
+  background-color: var(--color-primary-light);
   padding: 10px 15px;
   gap: 10px;
+  transition: var(--transition);
 }
 .time {
   font-size: 0.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left: 1px solid black;
+  height: 100%;
+  padding-left: 5px;
 }
-.test {
-  accent-color: rebeccapurple;
+.edit {
+  height: 25px;
+  background-color: inherit;
+  border: none;
+  color: #2d23bb;
+  font-weight: 600;
+  margin: auto;
+}
+.checkbox {
+  accent-color: #9d62d8;
+  width: 25px;
+  height: 25px;
+  margin: auto;
+}
+.tasks:has(.checkbox:checked) {
+  background-color: var(--color-primary-dark);
+  color: var(--text-primary);
+}
+.tasks:has(.checkbox:checked) .edit {
+  color: #756de4;
 }

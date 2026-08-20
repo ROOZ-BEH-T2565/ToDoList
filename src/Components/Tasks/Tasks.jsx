@@ -1,4 +1,5 @@
 import style from "./Tasks.module.css";
+
 export const Tasks = () => {
   return (
     <div className={style.tasks}>
@@ -7,7 +8,8 @@ export const Tasks = () => {
         <h4>ورزش</h4>
         <p>رفتن به باشگاه</p>
       </div>
-      <input type="checkbox" className={style.test}/>
+      <button className={style.edit}>edit</button>
+      <input type="checkbox" className={style.checkbox} />
     </div>
   );
 };

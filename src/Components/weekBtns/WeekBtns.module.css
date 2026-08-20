@@ -1,7 +1,14 @@
 .btns {
-  background-color: rebeccapurple;
+  background-color: var(--color-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
   text-align: center;
   padding: 10px;
   border-radius: 15px;
   box-shadow: 1px 1px 1px rgb(0, 0, 0);
+  transition: var(--transition);
+}
+.btns.active {
+  box-shadow: var(--shadow-clicke);
+  background-color: var(--color-primary-dark);
 }
