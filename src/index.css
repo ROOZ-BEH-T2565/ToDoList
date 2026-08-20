@@ -19,7 +19,10 @@
   --text-inverse: #1e1b2e;
   /* other */
   --shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
-  --shadow-clicke: inset 2px 2px 5px rgba(0, 0, 0, 0.767);
+  --shadow1: 2px 2px 5px rgba(0, 0, 0, 0.767);
+  --shadow2: -2px -2px 5px rgba(0, 0, 0, 0.767);
+  --shadow-click: inset 2px 2px 5px rgba(0, 0, 0, 0.767);
+  --shadow-click1: inset -2px -2px 5px rgba(0, 0, 0, 0.767);
   --radius: 14px;
   --transition: 0.3s ease;
   /* --color-accent: #ec4899;

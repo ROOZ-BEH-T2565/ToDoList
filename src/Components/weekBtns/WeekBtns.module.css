@@ -9,6 +9,6 @@
   transition: var(--transition);
 }
 .btns.active {
-  box-shadow: var(--shadow-clicke);
+  box-shadow: var(--shadow-click), var(--shadow-click1);
   background-color: var(--color-primary-dark);
 }

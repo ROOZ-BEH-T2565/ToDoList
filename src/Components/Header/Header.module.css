@@ -19,7 +19,7 @@
 }
 .col button:active {
   background-color: var(--color-primary-dark);
-  box-shadow: var(--shadow-clicke);
+  box-shadow: var(--shadow-click), var(--shadow-click1);
 }
 .date {
   font-size: 1.4rem;
