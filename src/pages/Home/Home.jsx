@@ -3,16 +3,16 @@ import style from "./Home.module.css";
 import { WeekBtns } from "../../Components/weekBtns/WeekBtns";
 import { Tasks } from "../../Components/Tasks/Tasks";
 import { useLocalStorage } from "../../Context/localStorageContext";
+import { useTheme } from "../../Context/themeMode";
 
 export const Home = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   //ذخیرع کردن دیتا خوانده شده از لوکال استوریج
-  const [readTasks, setReadTasks] = useState([]);
   const { tasks, syncTasks } = useLocalStorage();
 
   useEffect(() => {
     //خواندن از لوکال استوریج
-    setReadTasks(syncTasks());
+    syncTasks();
   }, []);
 
   // ساخت آرایه‌ای از ۷ روز

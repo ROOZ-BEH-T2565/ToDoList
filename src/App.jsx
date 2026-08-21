@@ -4,19 +4,22 @@ import { Home } from "./pages/Home/Home";
 import { CreateTask } from "./pages/Create Task/CreateTask";
 import { Header } from "./Components/Header/Header";
 import { LocalStorageProvider } from "./Context/localStorageContext";
+import { ThemeProvider } from "./Context/themeMode";
 
 function App() {
   return (
     <>
-      <LocalStorageProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Create" element={<CreateTask />} />
-          </Routes>
-        </BrowserRouter>
-      </LocalStorageProvider>
+      <ThemeProvider>
+        <LocalStorageProvider>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Create" element={<CreateTask />} />
+            </Routes>
+          </BrowserRouter>
+        </LocalStorageProvider>
+      </ThemeProvider>
     </>
   );
 }
