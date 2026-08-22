@@ -10,11 +10,14 @@ export const ThemeProvider = ({ children }) => {
     // بررسی localStorage
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-      return savedTheme; 
+      return savedTheme;
     }
 
     // اگر در localStorage نبود، تشخیص تم سیستم
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
       return "dark";
     }
 
@@ -55,7 +58,7 @@ export const ThemeProvider = ({ children }) => {
   //  گوش دادن به تغییرات تم سیستم
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    
+
     const handleSystemThemeChange = (e) => {
       // فقط اگر کاربر قبلاً تم را دستی انتخاب نکرده باشد
       if (!localStorage.getItem("theme")) {
@@ -64,7 +67,8 @@ export const ThemeProvider = ({ children }) => {
     };
 
     mediaQuery.addEventListener("change", handleSystemThemeChange);
-    return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
+    return () =>
+      mediaQuery.removeEventListener("change", handleSystemThemeChange);
   }, []);
 
   const value = {
@@ -75,7 +79,9 @@ export const ThemeProvider = ({ children }) => {
     isLight: theme === "light",
   };
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
 };
 
 // هوک سفارشی

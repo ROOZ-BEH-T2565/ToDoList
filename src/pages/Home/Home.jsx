@@ -6,6 +6,7 @@ import { useLocalStorage } from "../../Context/localStorageContext";
 import { useTheme } from "../../Context/themeMode";
 
 export const Home = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
   //ذخیرع کردن دیتا خوانده شده از لوکال استوریج
   const { tasks, syncTasks } = useLocalStorage();
@@ -39,6 +40,8 @@ export const Home = () => {
               month: "long",
               day: "numeric",
             })}
+            isActive={selectedIndex === index}
+            onClick={() => setSelectedIndex(index)}
           />
         ))}
       </div>
