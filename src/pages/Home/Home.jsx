@@ -6,8 +6,8 @@ import { useLocalStorage } from "../../Context/localStorageContext";
 import { useTheme } from "../../Context/themeMode";
 
 export const Home = () => {
+  // ذخیره ایندکس هر باتن
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [selectedDate, setSelectedDate] = useState(null);
   //ذخیرع کردن دیتا خوانده شده از لوکال استوریج
   const { tasks, syncTasks } = useLocalStorage();
 

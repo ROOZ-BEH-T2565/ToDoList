@@ -10,7 +10,7 @@ export const WeekBtns = (props) => {
 
   return (
     <button
-      className={`${style.btns} ${props.isActive && style.active}`}
+      className={`${style.btns} ${props.isActive ? style.active : ""}`}
       onClick={handelClick}
     >
       {props.persianDate}

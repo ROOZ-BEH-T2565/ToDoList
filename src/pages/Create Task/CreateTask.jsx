@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useLocalStorage } from "../../Context/localStorageContext";
 import { Input } from "../../Components/input/Input";
 import style from "./CreateTask.module.css";
+import { SelectedWeekBtns } from "../../Components/SelectedWeekBtns/SelectedWeekBtns";
 
 export const CreateTask = () => {
+  // استت برای وصعیت نمایش مودال
+  const [showModal, setShowModal] = useState(false);
   // addTask از کانتکس دریافت میکنیم
   const { addTask } = useLocalStorage();
 
@@ -35,11 +38,20 @@ export const CreateTask = () => {
       return;
     }
 
+    //نمایش مودال
+    setShowModal(true);
+  };
+
+  const handleSelectedDate = (date) => {
+    //بستن مودال
+    setShowModal(false);
+
     // ساخت تسک جدید
     const newTask = {
       ...formData,
       id: Date.now(),
       completed: false,
+      date: date,
     };
 
     //فرستادن تسک به لوکال استوریج
@@ -47,9 +59,6 @@ export const CreateTask = () => {
 
     //پاک کردن مقادیر فرم بعد از ثبت
     setFormData({ title: "", description: "", time: "" });
-
-    // (اختیاری) اگر می‌خوای بعد از ثبت به صفحه اصلی بره، می‌تونی از useNavigate استفاده کنی
-    // navigate("/");
   };
 
   return (
@@ -76,6 +85,8 @@ export const CreateTask = () => {
       <button className={style.btn} onClick={handleSubmitTask}>
         ثبت
       </button>
+      {showModal && <SelectedWeekBtns onSelectDate={handleSelectedDate} />}
+
       <div className={`${style.circle} ${style.one}`}></div>
       <div className={`${style.circle} ${style.two}`}></div>
       <div className={`${style.circle} ${style.three}`}></div>
