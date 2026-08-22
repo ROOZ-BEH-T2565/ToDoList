@@ -1,0 +1,49 @@
+name: استقرار خودکار
+
+on:
+  push:
+    branches:
+      - main  # هر بار که روی شاخه main پوش کنی، اجرا می‌شود
+
+jobs:
+  build:
+    name: ساخت پروژه
+    runs-on: ubuntu-latest
+    steps:
+      - name: دریافت کد
+        uses: actions/checkout@v4
+
+      - name: نصب Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: نصب وابستگی‌ها
+        run: npm ci
+
+      - name: بیلد گرفتن
+        run: npm run build
+
+      - name: آپلود فایل‌های ساخته‌شده
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-files
+          path: ./dist
+
+  deploy:
+    name: استقرار روی Pages
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: دریافت فایل‌های ساخته‌شده
+        uses: actions/download-artifact@v4
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: انتشار روی GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

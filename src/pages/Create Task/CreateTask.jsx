@@ -15,6 +15,7 @@ export const CreateTask = () => {
     title: "",
     description: "",
     time: "",
+    cateGoryDate: "",
   });
 
   // گرفتن مقدار هر اینپوت و ذخیره در استیت فرم
